@@ -7,10 +7,7 @@ const App = () => {
     <div className="h-screen">
       <Header />
 
-      <div className="flex">
-        <Sidebar />
         <Dashboard />
-      </div>
     </div>
   )
 }
