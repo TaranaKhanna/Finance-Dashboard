@@ -1,8 +1,11 @@
 import { useState } from "react";
+import { useRole } from "../../context/RoleContext";
 
 export default function Transactions({ transactions }) {
   const [search, setSearch] = useState("");
   const [filter, setFilter] = useState("all");
+
+  const { role } = useRole();
 
   const filteredData = transactions.filter((t) => {
     const matchesSearch = t.category
@@ -17,7 +20,7 @@ export default function Transactions({ transactions }) {
 
   return (
     <div className="bg-slate-800 p-4 rounded-xl">
-      
+
       <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4 gap-3">
         <h2 className="text-lg font-semibold">Transactions</h2>
 
@@ -39,6 +42,12 @@ export default function Transactions({ transactions }) {
             <option value="income">Income</option>
             <option value="expense">Expense</option>
           </select>
+
+          {role === "admin" && (
+            <button className="bg-blue-500 hover:bg-blue-600 px-3 py-2 rounded-lg text-sm">
+              + Add
+            </button>
+          )}
         </div>
       </div>
 
@@ -51,6 +60,7 @@ export default function Transactions({ transactions }) {
               <th className="text-left py-2">Category</th>
               <th className="text-left py-2">Amount</th>
               <th className="text-left py-2">Type</th>
+              {role === "admin" && <th className="text-left py-2">Action</th>}
             </tr>
           </thead>
 
@@ -69,6 +79,14 @@ export default function Transactions({ transactions }) {
                   ₹{t.amount}
                 </td>
                 <td className="capitalize">{t.type}</td>
+
+                {role === "admin" && (
+                  <td>
+                    <button className="text-blue-400 hover:underline text-sm">
+                      Edit
+                    </button>
+                  </td>
+                )}
               </tr>
             ))}
           </tbody>
@@ -99,6 +117,12 @@ export default function Transactions({ transactions }) {
               <span>{t.date}</span>
               <span className="capitalize">{t.type}</span>
             </div>
+
+            {role === "admin" && (
+              <button className="mt-2 text-blue-400 text-sm">
+                Edit
+              </button>
+            )}
           </div>
         ))}
       </div>
