@@ -1,34 +1,40 @@
-import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import {
   Home,
   Wallet,
-  ArrowLeftRight,
   BarChart3,
-  Menu,
-  X,
+  LogOut
 } from "lucide-react";
 
-export default function Sidebar() {
-  const [isOpen, setIsOpen] = useState(false);
+export default function Sidebar({ setUser, isOpen }) {
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    localStorage.removeItem("user");
+    setUser(null);
+    navigate("/");
+  };
+
+  const handleScroll = (id) => {
+    const section = document.getElementById(id);
+    if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+    }
+
+    setIsOpen(false);
+  };
 
   const links = [
-    { name: "Home", icon: Home, href: "#summary" },
-    { name: "Balances", icon: Wallet, href: "#charts" },
-    { name: "Transactions", icon: ArrowLeftRight, href: "#transactions" },
-    { name: "Insights", icon: BarChart3, href: "#insights" },
+    { name: "Home", icon: Home, id: "home" },
+    { name: "Balances", icon: Wallet, id: "balance" },
+    { name: "Transactions", icon: BarChart3, id: "transaction" },
+    { name: "Insights", icon: BarChart3, id: "insights" },
   ];
 
   return (
-    <>
-      <button
-        className="md:hidden fixed top-4 left-4 z-50 bg-slate-800 p-2 rounded-lg text-white"
-        onClick={() => setIsOpen(!isOpen)}
-      >
-        {isOpen ? <X size={20} /> : <Menu size={20} />}
-      </button>
-
       <div
         className={`
+          flex flex-col justify-between
         bg-slate-800 text-white z-40
           transition-all duration-300
           
@@ -44,22 +50,32 @@ export default function Sidebar() {
             const Icon = link.icon;
 
             return (
-              <a
-                key={index}
-                href={link.href}
-                className="flex items-center gap-4 px-3 py-2 rounded-lg hover:bg-slate-700 transition"
-              >
-                <Icon size={20} />
-
-                {/* 🔹 Hide text on small screens */}
-                <span className="hidden md:inline text-sm font-medium">
-                  {link.name}
-                </span>
-              </a>
+              <button
+              key={index}
+              onClick={() => handleScroll(link.id)}
+              className="w-full flex items-center gap-4 px-3 py-2 rounded-lg hover:bg-slate-700 transition text-left"
+            >
+              <Icon size={20} />
+              <span className="hidden md:inline text-sm font-medium">
+                {link.name}
+              </span>
+            </button>
             );
           })}
         </nav>
+
+        <div>
+          <button
+            onClick={handleLogout}
+            className="flex items-center gap-4 px-3 py-2 rounded-lg hover:bg-red-500/20 text-red-400 w-full transition"
+          >
+            <LogOut size={20} />
+
+            <span className="hidden md:inline text-sm font-medium">
+              Logout
+            </span>
+          </button>
+        </div>
       </div>
-    </>
   );
 }

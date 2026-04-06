@@ -22,7 +22,7 @@ export default function Login({ setUser }) {
         <div className="space-y-3">
           <button
             onClick={() =>
-              handleLogin({ email: "a@gmail.com", name: "User A" })
+              handleLogin({ email: "a@gmail.com", name: "Aman" })
             }
             className="w-full bg-blue-500 hover:bg-blue-600 py-2 rounded-lg"
           >
@@ -31,7 +31,7 @@ export default function Login({ setUser }) {
 
           <button
             onClick={() =>
-              handleLogin({ email: "b@gmail.com", name: "User B" })
+              handleLogin({ email: "b@gmail.com", name: "Bella" })
             }
             className="w-full bg-green-500 hover:bg-green-600 py-2 rounded-lg"
           >
@@ -40,7 +40,7 @@ export default function Login({ setUser }) {
 
           <button
             onClick={() =>
-              handleLogin({ email: "c@gmail.com", name: "User C" })
+              handleLogin({ email: "c@gmail.com", name: "Cat" })
             }
             className="w-full bg-purple-500 hover:bg-purple-600 py-2 rounded-lg"
           >

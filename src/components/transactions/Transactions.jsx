@@ -22,7 +22,7 @@ export default function Transactions({ transactions }) {
     <div className="bg-slate-800 p-4 rounded-xl">
 
       <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4 gap-3">
-        <h2 className="text-lg font-semibold">Transactions</h2>
+        <h2 className="text-base sm:text-lg font-semibold">Transactions</h2>
 
         <div className="flex gap-2">
           <input

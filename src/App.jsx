@@ -6,6 +6,7 @@ import Login from "./pages/Login";
 
 const App = () => {
   const [user, setUser] = useState(null);
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   
   useEffect(() => {
     const storedUser = JSON.parse(localStorage.getItem("user"));
@@ -16,7 +17,7 @@ const App = () => {
     <BrowserRouter>
       <div className="h-screen bg-slate-900 text-white">
         
-        {user && <Header />}
+        {user && <Header user={user} isOpen={isSidebarOpen} setIsOpen={setIsSidebarOpen} />}
 
         <Routes>
           <Route
@@ -26,7 +27,7 @@ const App = () => {
 
           <Route
             path="/dashboard"
-            element={user ? <Dashboard /> : <Navigate to="/" />}
+            element={user ? <Dashboard setUser={setUser} isOpen={isSidebarOpen} /> : <Navigate to="/" />}
           />
 
         </Routes>

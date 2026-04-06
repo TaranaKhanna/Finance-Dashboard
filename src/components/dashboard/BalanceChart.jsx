@@ -28,9 +28,9 @@ export default function BalanceChart({ transactions }) {
 
   return (
     <div className="bg-slate-800 p-4 pb-10 rounded-xl h-80 w-full">
-      <h2 className="mb-4 font-semibold text-sm sm:text-base">Balance Trend</h2>
+      <h2 className="mb-4 font-semibold text-base sm:text-lg">Balance Trend</h2>
 
-      <ResponsiveContainer width="100%" height="100%">
+      {data?.balance > 0 ? (<ResponsiveContainer width="100%" height="100%">
         <LineChart data={data}>
           <CartesianGrid stroke="#334155" />
           <XAxis dataKey="date" stroke="#94a3b8" />
@@ -49,7 +49,9 @@ export default function BalanceChart({ transactions }) {
             strokeWidth={2}
           />
         </LineChart>
-      </ResponsiveContainer>
+      </ResponsiveContainer>) : (
+        "No Balance"
+      )}
     </div>
   )
 }

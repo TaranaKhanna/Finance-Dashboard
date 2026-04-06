@@ -44,7 +44,7 @@ export default function SpendingChart({ transactions }) {
   return (
 
     <div className="bg-slate-800 p-4 rounded-xl h-auto md:h-80">
-      <h2 className="mb-4 font-semibold text-sm sm:text-base">
+      <h2 className="mb-4 font-semibold text-base sm:text-lg">
         Spending Breakdown
       </h2>
 
@@ -57,9 +57,9 @@ export default function SpendingChart({ transactions }) {
 
           <p className="text-gray-400 mt-4">Most Spent On</p>
           <p className="text-base md:text-lg font-semibold text-green-400">
-            {maxSpentCategory}
+            {maxSpentCategory || "N/A"}
           </p>
-          <p className="text-white">₹{maxAmount}</p>
+          {maxSpentCategory && <p className="text-white">₹{maxAmount}</p>}
         </div>
 
         <div className="w-full h-56 md:h-full md:w-1/2">
@@ -68,8 +68,9 @@ export default function SpendingChart({ transactions }) {
               <Pie
                 data={data}
                 dataKey="value"
-                outerRadius={window.innerWidth < 768 ? 70 : 100}
-                label={window.innerWidth >= 768}
+                outerRadius="80%"
+                innerRadius="40%"
+                label={false}
               >
                 {data.map((entry, index) => (
                   <Cell key={index} fill={COLORS[index % COLORS.length]} />
