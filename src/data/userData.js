@@ -101,5 +101,6 @@ export const transactions = {
             category: "Health",
             type: "expense"
         }
-    ]
+    ],
+    "c@gmail.com": []
 }
