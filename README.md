@@ -5,13 +5,13 @@ This project simulates how users can track their financial activity, analyze spe
 
 ---
 
-## 🚀 Live Demo
+## Live Demo
 
-[> (Finance-Dashboard)](https://vercel.com/taranakhannas-projects/finance-dashboard)
+[Finance-Dashboard](https://vercel.com/taranakhannas-projects/finance-dashboard)
 
 ---
 
-## 📌 Overview
+## Overview
 
 This dashboard allows users to:
 
@@ -25,7 +25,7 @@ Authentication and data are simulated using localStorage and mock datasets.
 
 ---
 
-## ✨ Features
+## Features
 
 ### Dashboard Overview
 
@@ -40,32 +40,32 @@ Authentication and data are simulated using localStorage and mock datasets.
 * Filter by type (Income / Expense)
 * Responsive table → card layout (mobile)
 
-### 👤 Role-Based UI
+### Role-Based UI
 
 * **Viewer** → Read-only access
 * **Admin** → Can add/edit transactions (UI-level simulation)
 
-### 📈 Insights
+### Insights
 
 * Highest spending category
 * Total income vs expense
 * Savings calculation
 * Smart financial messages
 
-### 🔐 Authentication (Simulated)
+### Authentication (Simulated)
 
 * Demo login (User A, B, C)
 * User-specific data
 * Stored in localStorage
 
-### 📱 Responsive Design
+### Responsive Design
 
 * Mobile-friendly layout
 * Sidebar toggle on small screens
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 * **Frontend:** React (Vite)
 * **Styling:** Tailwind CSS
@@ -75,7 +75,7 @@ Authentication and data are simulated using localStorage and mock datasets.
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```
 src/
@@ -98,7 +98,7 @@ src/
 
 ---
 
-## ⚙️ Setup Instructions
+## Setup Instructions
 
 ```bash
 # Clone the repository
@@ -113,7 +113,7 @@ npm run dev
 
 ---
 
-## 🧠 Key Decisions & Approach
+## Key Decisions & Approach
 
 * **No backend used** → All data handled via mock datasets
 * **User simulation** → localStorage used for authentication
@@ -122,7 +122,7 @@ npm run dev
 
 ---
 
-## ⚠️ Limitations
+## Limitations
 
 * No real authentication or backend
 * Add/Edit transactions are simulated (frontend only)
@@ -130,7 +130,7 @@ npm run dev
 
 ---
 
-## 🔥 Future Improvements
+## Future Improvements
 
 * Backend integration (Node.js / Firebase)
 * Real authentication (JWT / OAuth)
@@ -140,7 +140,7 @@ npm run dev
 
 ---
 
-## 🎯 What I Learned
+## What I Learned
 
 * Building scalable UI architecture
 * Managing state and data flow in React
@@ -150,7 +150,7 @@ npm run dev
 
 ---
 
-## 👤 Author
+## Author
 
 **Tarana Khanna**
 
